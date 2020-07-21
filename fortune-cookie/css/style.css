@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(255, 200, 47);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10% 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 50%;
+  height: 500px;
+  background-color: rgb(255, 248, 248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.224);
+  border-radius: 10px;
+  padding: 1em;
+}
+
+h1 {
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 3em;
+  color: rgb(103, 21, 21);
+}
+
+@keyframes cookieBoom {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes result-note-ani {
+  from {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-70%);
+  }
+}
+
+@keyframes result-cookie-ani {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1.3);
+  }
+}
+
+.cookie-box {
+  display: flex;
+  width: 300px;
+  height: 350px;
+  position: relative;
+}
+
+.cookie {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transform: scale(1);
+  margin-top: 30px;
+}
+.note {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.673);
+  border-radius: 10px;
+  max-width: 50%;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  animation: 1s result-note-ani forwards;
+}
+
+.result {
+  color: black;
+  padding: 3em;
+}
+
+.image1 {
+  background-image: url(../images/first.png);
+}
+
+.image2 {
+  background-image: url(../images/second.png);
+}
+
+.image3 {
+  background-image: url(../images/third.png);
+  animation: result-cookie-ani 1s forwards cubic-bezier(0.25, 0.1, 0.65, 1.71);
+}
+
+.image1:hover,
+.image2:hover {
+  animation: cookieBoom 1s linear infinite alternate;
+}
+
+.filter {
+  position: absolute;
+  width: 100%;
+  min-height: 200%;
+  background-color: black;
+  opacity: 0.4;
+}
+
+.displaynone {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .cookie-box {
+    width: 150px;
+    height: 250px;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+      
+    <div class="container">
+      <h1>Fortune Cookie!</h1>
+      <div class="cookie-box">
+        <input type="button" class="cookie image1"></input>
+      </div>
+      <div class="note">
+        <span class="result displaynone">결과입니다!</span>
+      </div>
+    </div>
+    <div class="filter displaynone"></div>
+
+
+    <script>
+        const cookie = document.querySelector('.cookie');
+        const filter = document.querySelector('.filter');
+        let resultText = document.querySelector('.result');
+        
+
+        let result = [
+            '외로움의 터널에 끝이 보입니다. 밝은 빛을 만끽하세요.😊', 
+            '때론 스스로가 화려한 무대위의 주인공이 되는것도 좋은 일입니다.💃',
+            '당신의 꿈은 계속될 것이고, 마침내 이루어 질것입니다.🤸‍♀️',
+            '순간을 소중히. Carpe diem.👻',
+            '당신의 원하는 만큼의 풍요로운 삶은 그렇게 멀리 있지는 않습니다.🍹',
+            '당신에겐 달콤한 휴식이 필요한 때입니다. 일상에서 벗어나 자유를 만끽하세요.☕',
+            '기회는 그렇게 자주 찾아오지 않는답니다. 당신에게 온 기회를 최대한 이용하세요.🏃‍♀️',
+            '새로운 각도에서 사물들을 바라볼 때 당신은 보다 자유롭게 될 것입니다.👓',
+            '잠시동안 곤란을 겪거나 멈추어 있는것은 그 나름대로의 가치가 있는 것입니다.👽',
+            '이상을 현실로 바꿀 수 있도록 창조력과 숙련된 솜씨를 발휘해 보세요.🎨'
+            ]
+
+
+        let randomItem = result[Math.floor(Math.random()*result.length)];
+        let count = 0
+
+        function clickHandler() {
+            count = count + 1;
+            console.log(count)
+
+            if (count > 10) {
+                cookie.classList.remove('image1')
+                cookie.classList.add('image2')
+            } if (count > 20) {
+                cookie.classList.remove('image2')
+                cookie.classList.add('image3')
+                filter.classList.toggle('displaynone')
+                resultText.classList.toggle('displaynone')
+                resultText.innerHTML = randomItem
+            }
+        }
+        cookie.addEventListener('click', clickHandler)
+    </script>
+  </body>
+</html>
